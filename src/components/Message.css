@@ -1,0 +1,51 @@
+
+.message {
+    width: 500px;
+    border-top: 1px solid #61dafb;
+    border-bottom: 1px solid #61dafb;
+    display: block;
+    padding: 20px 7px;
+  }
+  
+  .message-header {
+    display: flex;
+  }
+  
+  .message-header-text_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .message-header-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  
+  .message-header-title {
+    font-size: 12px;
+  }
+  
+  .message-header-date {
+    font-size: 12px;
+    color: #61dafb;
+    opacity: .5;
+  }
+
+  .message-header-counter {
+    font-size: 16px;
+    margin: 0 0 0 40px;
+  }
+
+  .message-header-button {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: 0 20px;
+    transition: all .2s;
+  }
+
+  .is-active {
+    background: #f00;
+  }
