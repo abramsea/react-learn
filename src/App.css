@@ -10,3 +10,27 @@
   color: white;
 }
 
+.navigation {
+  background: #282c34;
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  height: 80px;
+}
+
+.navigation-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  margin: 0 auto;
+  width: 500px;
+  padding: 0;
+}
+
+.navigation-list li {
+  list-style-type: none;
+}
+
+.navigation-link {
+  color: #fff;
+}

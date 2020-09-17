@@ -1,32 +1,86 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 import './App.css';
-import logo from './logo.svg'
 import Message from './components/Message.js'
+import axios from 'axios';
 
-function App() {
+const API = 'https://randomuser.me/api?results=50'
 
-  return (
-    <div className="App">
-      <Message 
-        name="Vasya"
-        logo={logo}
-        title="My Title"
-        text="Hello"
-       />
-      <Message 
-        name="Katya"
-        logo={logo}
-        title="Katya title"
-        text="Yo"
-       />
-      <Message 
-        name="Sasha"
-        logo={logo}
-        title="Sasha title"
-        text="Sasha text"
-       />
-    </div>
-  );
-}
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      userData: []
+    };
+  }
+
+  componentDidMount() {
+    axios.get(API)
+      .then((res) => {
+        this.setState( {userData: res.data.results });
+      });
+  }
+
+
+  render() {
+    const { userData } = this.state;
+    return (
+      <Router>
+        <nav className="navigation">
+          <ul className="navigation-list">
+            <li>
+              <Link to="/" className="navigation-link">
+                  Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/hello" className="navigation-link">
+                  Hello
+              </Link>
+            </li>
+            <li>
+              <Link to="/signin" className="navigation-link">
+                  Register
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path="/" exact>
+            <div className="App">
+              {userData.map((  { id, name, picture, location }) => {
+                return (
+                <Message 
+                  name={`${name.first} ${name.last}`}
+                  logo={picture.thumbnail}
+                  title={location.country}
+                  text={location.city}
+                  key={id.value}
+              />
+                );
+              })}
+              
+            </div>
+          </Route>
+          <Route path="/hello">
+              Hello!
+          </Route>
+          <Route path="/signin">
+              I'm register.
+          </Route>
+        </Switch>
+      </Router>
+  
+    );
+    }
+  }
+
+  
 
 export default App;

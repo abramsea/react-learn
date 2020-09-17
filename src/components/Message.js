@@ -10,6 +10,15 @@ class Message extends React.Component {
       isLiked: false,
       counter: 0
     };
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+
+  handleClick() {
+    const { isLiked, counter } = this.state;
+    this.setState( {isLiked: !isLiked, counter: counter +1});
+
   }
 
     render() {
@@ -36,7 +45,7 @@ class Message extends React.Component {
                     {counter}
                   </span>
                   <button className={btnClassName}
-                    onClick={() => this.setState( {isLiked: !isLiked, counter: counter +1})}
+                    onClick={this.handleClick}
                   />
                   
               </div>
