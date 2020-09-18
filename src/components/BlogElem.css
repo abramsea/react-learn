@@ -27,3 +27,7 @@
 .blog-elem:nth-of-type(3) {
     grid-area: c;
 }
+
+.blog-elem-pic {
+    max-width: 100%;
+}
