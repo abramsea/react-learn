@@ -6,10 +6,11 @@ import {
   Link
 } from 'react-router-dom';
 import './App.css';
-import Message from './components/Message.js'
+import Message from './components/Message.js';
+import BlogElem from './components/BlogElem.js';
 import axios from 'axios';
 
-const API = 'https://randomuser.me/api?results=50'
+const API = 'https://randomuser.me/api?results=3'
 
 class App extends React.Component {
   constructor(props) {
@@ -32,25 +33,28 @@ class App extends React.Component {
     const { userData } = this.state;
     return (
       <Router>
-        <nav className="navigation">
-          <ul className="navigation-list">
-            <li>
-              <Link to="/" className="navigation-link">
-                  Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/hello" className="navigation-link">
-                  Hello
-              </Link>
-            </li>
-            <li>
-              <Link to="/signin" className="navigation-link">
-                  Register
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <header className="header">
+          <h1 className="header-logo">myBlog</h1>
+          <nav className="navigation">
+            <ul className="navigation-list">
+              <li>
+                <Link to="/" className="navigation-link">
+                    Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="navigation-link">
+                    Blog
+                </Link>
+              </li>
+              <li>
+                <Link to="/signin" className="navigation-link">
+                    Register
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
         <Switch>
           <Route path="/" exact>
             <div className="App">
@@ -68,8 +72,19 @@ class App extends React.Component {
               
             </div>
           </Route>
-          <Route path="/hello">
-              Hello!
+          <Route path="/blog">
+              This is blog!
+              <div className="blog">
+                  <BlogElem></BlogElem>
+                  <BlogElem></BlogElem>
+                  <BlogElem></BlogElem>
+                  <BlogElem></BlogElem>
+                  <BlogElem></BlogElem>
+                  <BlogElem></BlogElem>
+                  <BlogElem></BlogElem>
+                  <BlogElem></BlogElem>
+                  <BlogElem></BlogElem>
+              </div>
           </Route>
           <Route path="/signin">
               I'm register.

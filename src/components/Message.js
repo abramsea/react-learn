@@ -18,7 +18,6 @@ class Message extends React.Component {
   handleClick() {
     const { isLiked, counter } = this.state;
     this.setState( {isLiked: !isLiked, counter: counter +1});
-
   }
 
     render() {
@@ -43,13 +42,12 @@ class Message extends React.Component {
                 </div>
                 <span className="message-header-counter">
                     {counter}
-                  </span>
-                  <button className={btnClassName}
-                    onClick={this.handleClick}
-                  />
-                  
+                </span>
+                <button className={btnClassName}
+                  onClick={this.handleClick}
+                />
               </div>
-              <div className="message=body">
+              <div className="message-body">
                   <h2 className="message-body-title">
                     {title}
                   </h2>

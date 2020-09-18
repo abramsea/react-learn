@@ -1,14 +1,15 @@
 
 .message {
     width: 500px;
-    border-top: 1px solid #61dafb;
-    border-bottom: 1px solid #61dafb;
+    border-top: 1px solid #004680;
+    border-bottom: 1px solid #004680;
     display: block;
     padding: 20px 7px;
   }
   
   .message-header {
     display: flex;
+    position: relative;
   }
   
   .message-header-text_block {
@@ -25,17 +26,21 @@
   
   .message-header-title {
     font-size: 12px;
+    margin: 0 20px;
   }
   
   .message-header-date {
     font-size: 12px;
-    color: #61dafb;
+    color: #004680;
     opacity: .5;
+    margin: 0 20px;
   }
 
   .message-header-counter {
     font-size: 16px;
-    margin: 0 0 0 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
   .message-header-button {
@@ -44,8 +49,31 @@
     cursor: pointer;
     margin: 0 20px;
     transition: all .2s;
+    background: url(../like-inactive.svg) no-repeat;
+    background-size: contain;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .message-header-button:focus {
+    outline: none;
   }
 
   .is-active {
-    background: #f00;
+    background: url(../like-active.svg) no-repeat;
+    background-size: contain;
+  }
+
+  .message-body {
+
+  }
+
+  .message-body-title {
+    font-size: 24px;
+  }
+
+  .message-body-content {
+    font-size: 20px;
   }
